@@ -28,9 +28,9 @@ INSERT INTO #cohort (
 	)
 SELECT d.PERSON_ID
 	,CASE 
-		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '1/1/2017'), d.birth_date), '1/1/2017') < 0
-			THEN DATEDIFF(YEAR, d.birth_date, '1/1/2017') - 1
-		ELSE DATEDIFF(YEAR, d.birth_date, '1/1/2017')
+		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '6/1/2017'), d.birth_date), '6/1/2017') < 0
+			THEN DATEDIFF(YEAR, d.birth_date, '6/1/2017') - 1
+		ELSE DATEDIFF(YEAR, d.birth_date, '6/1/2017')
 		END
 	,GENDER
 	,PRIMARY_LANGUAGE
