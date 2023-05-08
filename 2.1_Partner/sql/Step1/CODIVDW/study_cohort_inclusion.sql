@@ -5,9 +5,9 @@ FROM (
 	SELECT PERSON_ID AS patid
 		,birth_date
 		,CASE 
-			WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, birth_date, '1/1/2017'), birth_date), '1/1/2017') < 0
-				THEN DATEDIFF(YEAR, birth_date, '1/1/2017') - 1
-			ELSE DATEDIFF(YEAR, birth_date, '1/1/2017')
+			WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, birth_date, '6/1/2017'), birth_date), '6/1/2017') < 0
+				THEN DATEDIFF(YEAR, birth_date, '6/1/2017') - 1
+			ELSE DATEDIFF(YEAR, birth_date, '6/1/2017')
 			END AS study_age_yrs
 		,CASE 
 			WHEN inc.patid IS NOT NULL
@@ -18,7 +18,7 @@ FROM (
 	LEFT JOIN (
 		SELECT DISTINCT @PERSON_ID_PATID patid
 		FROM @SCHEMA.@SESSION
-		WHERE DATEPART(YEAR, session_date) = 2017
+		WHERE session_date >= '2017-6-1' AND session_date < '2018-6-1'
 		) inc ON inc.patid = d.PERSON_ID
 	) a
 WHERE study_age_yrs BETWEEN 2
