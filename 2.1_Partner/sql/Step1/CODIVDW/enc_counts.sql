@@ -18,7 +18,7 @@ FROM (
   		END AS yr
   	FROM @SCHEMA.@ENCOUNTERS e
   	JOIN @SCHEMA.@LINK l on l.@PERSON_ID_PATID = e.PERSON_ID
-  	WHERE e.ADATE >= '2017-6-1' AND e.ADATE < '2020-6-1'
+  	WHERE e.ADATE >= '2017-6-1' AND e.ADATE < '2023-1-1'
   ) AS encounter_plus_year
   GROUP BY linkid, patid, yr
 ) a;
