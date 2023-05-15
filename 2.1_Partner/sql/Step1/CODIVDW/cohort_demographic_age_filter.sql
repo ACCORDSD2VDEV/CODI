@@ -11,7 +11,7 @@ FROM (
   	race,
   	hispanic,
   	yr,
-  	loc_start --,
+  	loc_start,
   	study_age_yrs_SY1,
   	study_age_yrs_SY2,
   	study_age_yrs_SY3
