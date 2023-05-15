@@ -6,5 +6,4 @@ FROM (
 	SELECT *
 	FROM @SCHEMA.@CENSUS_LOCATION cl
 	INNER JOIN #enc_counts e ON e.patid = cl.PERSON_ID
-	WHERE loc_start <= CONVERT(DATETIME, '12-31-' + CAST(yr AS VARCHAR(4)))
 	) a;
