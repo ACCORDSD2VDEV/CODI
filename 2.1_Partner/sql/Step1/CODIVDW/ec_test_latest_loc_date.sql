@@ -7,7 +7,7 @@ FROM (
 		,yr
 		,MAX(CONVERT(DATE, loc_start)) AS latest_loc_date
 	FROM #ec_test
-	WHERE loc_start <= CONVERT(DATETIME, '12-31-' + CAST(yr AS VARCHAR(4)))
+	--WHERE loc_start <= CONVERT(DATETIME, '12-31-' + CAST(yr AS VARCHAR(4)))
 	GROUP BY patid
 		,yr
 	) a;
