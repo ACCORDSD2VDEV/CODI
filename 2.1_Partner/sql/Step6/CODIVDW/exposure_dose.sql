@@ -28,6 +28,6 @@ FROM @SCHEMA.@SESSION s
 JOIN @SCHEMA.@PROGRAM pr ON pr.programid = s.programid
 JOIN @SCHEMA.@LINK l ON s.@PERSON_ID_PATID = l.@PERSON_ID_PATID
 JOIN #patientlist pl ON pl.linkid = l.@LINKID_COLUMN_VALUE
-WHERE session_date >= '1/1/2017'
+WHERE session_date >= '6/1/2017'
 ORDER BY l.@LINKID_COLUMN_VALUE;
 
