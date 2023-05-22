@@ -17,9 +17,12 @@ INSERT INTO #cohort
 SELECT DISTINCT p.linkid, d.PERSON_ID, GENDER, d.birth_date, RACE1, hispanic, 
 	   CASE WHEN s.patid IS NOT NULL THEN 1 ELSE 0 END,
 	   CASE 
-		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '1/1/2017'), d.birth_date), '1/1/2017') < 0
-			THEN DATEDIFF(YEAR, d.birth_date, '1/1/2017') - 1
-		ELSE DATEDIFF(YEAR, d.birth_date, '1/1/2017')
+		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '6/1/2017'), d.birth_date), '6/1/2017') < 0
+			THEN DATEDIFF(YEAR, d.birth_date, '6/1/2017') - 1
+		ELSE DATEDIFF(YEAR, d.birth_date, '6/1/2017')
+		--WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '1/1/2017'), d.birth_date), '1/1/2017') < 0
+		--	THEN DATEDIFF(YEAR, d.birth_date, '1/1/2017') - 1
+		--ELSE DATEDIFF(YEAR, d.birth_date, '1/1/2017')
 		END
 FROM @SCHEMA.@DEMOGRAPHICS d
 JOIN @SCHEMA.LINK l ON l.@PERSON_ID_PATID = d.PERSON_ID
