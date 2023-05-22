@@ -76,15 +76,15 @@ tryCatch({
 }, finally = {
   Andromeda::close(step_3_result)
 })
-result <- tryCatch({
-  source(here("R", "MITRE", "R_2_1-step-4.R"))
-  step4Output <- matched_data_id
-}, error = function(err) {
-  stop(err)
-}, finally = function(){
-  tryCatch({DBI::dbDisconnect(conn)})
-})
+#result <- tryCatch({
+#  source(here("R", "MITRE", "R_2_1-step-4.R"))
+#  step4Output <- matched_data_id
+#}, error = function(err) {
+#  stop(err)
+#}, finally = function(){
+#  tryCatch({DBI::dbDisconnect(conn)})
+#})
 
 
-writeOutput("PSM_matched_data", step4Output)
+writeOutput("PSM_matched_data", step_3_result)
 message(paste0("CODI Step ", CODISTEP + 1, " done!"))
