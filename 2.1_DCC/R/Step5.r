@@ -30,7 +30,9 @@ for(partner in stepFivePartnerFiles){
 
 PSM_matched_data <- bind_rows(participantsData)
 
-matched_data <- PSM_matched_data %>% group_by(linkid) %>% select(linkid, in_study_cohort, index_site)
+#matched_data <- PSM_matched_data %>% group_by(linkid) %>% select(linkid, in_study_cohort, index_site)
+matched_data <- PSM_matched_data %>% group_by(linkid) %>% select(linkid, in_study_cohort, index_site, ageyrs,  sex,acanthosis_nigricans,adhd, anxiety,asthma, autism,depression, diabetes,eating_disorders, hyperlipidemia, hypertension, nafld,obstructive_sleep_apnea,pcos,pmca,bmi_percent_of_p95,
+pat_pref_language_spoken, race, hispanic, insurance)
 
 
 # write out to DCC_out
