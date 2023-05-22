@@ -18,8 +18,8 @@ JOIN (
 	JOIN @SCHEMA.VITAL_SIGNS v ON e.ENC_ID = v.ENC_ID
 	WHERE e.ENCTYPE = 'AV'
 		AND ht IS NOT NULL
-		AND v.measure_date BETWEEN '1/1/2017'
-			AND '12/31/2017'
+		AND v.measure_date BETWEEN '6/1/2017'
+			AND '5/31/2018'
 	) height ON height.ENC_ID = e.ENC_ID
 	AND height.PERSON_ID = e.PERSON_ID
 JOIN (
@@ -32,8 +32,8 @@ JOIN (
 	JOIN @SCHEMA.VITAL_SIGNS v ON e.ENC_ID = v.ENC_ID
 	WHERE e.ENCTYPE = 'AV'
 		AND wt IS NOT NULL
-		AND v.measure_date BETWEEN '1/1/2017'
-			AND '12/31/2017'
+		AND v.measure_date BETWEEN '6/1/2017'
+			AND '5/31/2018'
 	) weight ON weight.ENC_ID = height.ENC_ID
 	AND weight.PERSON_ID = height.PERSON_ID
 WHERE e.ENCTYPE = 'AV'
