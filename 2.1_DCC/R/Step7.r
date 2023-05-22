@@ -167,7 +167,7 @@ cohort_demo <- cohort_demographic_u %>% select(linkid, birth_date, sex, race, hi
                 ageyrs,  sex,acanthosis_nigricans,adhd, anxiety,asthma, autism,depression, diabetes,eating_disorders,
                 hyperlipidemia, hypertension, nafld,obstructive_sleep_apnea,pcos,pmca,bmi_percent_of_p95,
                 pat_pref_language_spoken, race, hispanic, insurance) %>% 
-  mutate(age = floor(age_calc(birth_date, enddate = as.Date("2017-01-01"), units = "years")),
+  mutate(age = floor(age_calc(birth_date, enddate = as.Date("2017-06-01"), units = "years")),
          study = in_study_cohort) %>% 
   select(linkid, birth_date, age, sex, race, hispanic, study, ageyrs, sex,acanthosis_nigricans,adhd, anxiety,asthma, 
           autism,depression, diabetes,eating_disorders, hyperlipidemia, hypertension, nafld,obstructive_sleep_apnea,
