@@ -32,7 +32,7 @@ JOIN (
 		,MIN(session_date) AS first_session_date
 	FROM @SCHEMA.@SESSION s
 	JOIN #cohort c ON c.patid = s.@PERSON_ID_PATID
-	WHERE DATEPART(YEAR, session_date) = 2017
+	WHERE session_date >= '2017-6-1' AND session_date < '2018-6-1' 
 		AND cast(c.in_study_cohort as int) = 1
 	GROUP BY c.linkid
 		,s.@PERSON_ID_PATID
