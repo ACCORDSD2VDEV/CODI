@@ -35,6 +35,7 @@ JOIN (
 	WHERE session_date >= '2017-6-1' AND session_date < '2018-6-1' 
 		--DATEPART(YEAR, session_date) = 2017
 		AND cast(c.in_study_cohort as int) = 1
+		AND programid <> 'WCV'
 	GROUP BY c.linkid
 		,s.@PERSON_ID_PATID
 	) first_session ON first_session.patid = e.PERSON_ID
