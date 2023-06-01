@@ -1,4 +1,6 @@
 --Per Ken, all the programs are in so any session record should be included to consideration in the query
+--Per Ken, after well child visits were discovered in a data partner's VDW, we categorized those as a program and
+--are now excluding those sessions from eligible program sessions for Use Case 2.1
 DROP TABLE IF EXISTS #study_cohort;
 
 SELECT 
