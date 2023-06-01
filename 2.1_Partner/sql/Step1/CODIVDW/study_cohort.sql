@@ -21,7 +21,8 @@ INTO #study_cohort
 	EXCEPT 
 	SELECT @PERSON_ID_PATID
 	FROM @SCHEMA.@SESSION s
-		WHERE session_date >= '1-Jan-2017' AND session_date < '1-Jun-2017'
+		WHERE (session_date >= '1-Jan-2017' AND session_date < '1-Jun-2017')
+	 		OR programid IN ('WCV')
 		--AND programid IN (SELECT programid from #study_programs)
  )
 AND CASE 
