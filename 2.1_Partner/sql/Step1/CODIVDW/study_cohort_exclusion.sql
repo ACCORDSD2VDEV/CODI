@@ -20,6 +20,7 @@ FROM (
 		FROM @SCHEMA.@SESSION
 		WHERE session_date >= '1-Jan-2017'
 			AND session_date < '1-Jun-2017'
+			AND programid IN ('WCV')
 			--AND programid IN (
 			--	SELECT programid
 			--	FROM #study_programs
