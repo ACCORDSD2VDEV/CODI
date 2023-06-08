@@ -24,7 +24,7 @@ INTO #study_cohort
 	SELECT @PERSON_ID_PATID
 	FROM @SCHEMA.@SESSION s
 		WHERE (session_date >= '1-Jan-2017' AND session_date < '1-Jun-2017')
-	 		OR programid IN ('WCV')
+	 		--OR programid IN ('WCV') -- This was a temporary fix for a specific data partner (not ideal). 
 		--AND programid IN (SELECT programid from #study_programs)
  )
 AND CASE 
