@@ -20,7 +20,7 @@ FROM (
 		FROM @SCHEMA.@SESSION
 		WHERE (session_date >= '1-Jan-2017'
 			AND session_date < '1-Jun-2017')
-			OR programid IN ('WCV')
+			--OR programid IN ('WCV') -- Only relevant for a single data partner
 			--AND programid IN (
 			--	SELECT programid
 			--	FROM #study_programs
