@@ -13,7 +13,7 @@
         "Package": "Andromeda",
         "Version": "0.6.3", -- Formerly "0.4.1"
         "Source": "Repository",
-        "Repository": "CRAN"--,
+        "Repository": "CRAN",
         "Hash": "8dcc8e84af90526e01dcfd9c18fbb59c" 
     },
     "BH": {
