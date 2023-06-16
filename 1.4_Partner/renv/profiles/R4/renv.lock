@@ -11,7 +11,7 @@
   "Packages": {
     "Andromeda": {
       "Package": "Andromeda",
-      "Version": "0.6.3", -- Formerly "0.5.0"
+      "Version": "0.6.3", 
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "770d773d049662d2d1d13780f6f5e11c"
@@ -305,7 +305,7 @@
     },
     "tidyselect": {
       "Package": "tidyselect",
-      "Version": "1.2.0", -- Formerly "1.1.1"
+      "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "7243004a708d06d4716717fa1ff5b2fe"
