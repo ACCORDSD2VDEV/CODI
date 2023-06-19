@@ -25,7 +25,7 @@
     },
     "DatabaseConnector": {
       "Package": "DatabaseConnector",
-      "Version": "4.0.2",
+      "Version": "6.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "d8fea683d387c35a2f20d14cd03329df"
@@ -53,7 +53,7 @@
     },
     "SqlRender": {
       "Package": "SqlRender",
-      "Version": "1.7.0",
+      "Version": "1.15.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "c9f77eea223a6942eea0072b72e6ceb9"
@@ -130,7 +130,7 @@
     },
     "dplyr": {
       "Package": "dplyr",
-      "Version": "1.0.7",
+      "Version": "1.1.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "36f1ae62f026c8ba9f9b5c9a08c03297"
@@ -249,14 +249,14 @@
     },
     "rJava": {
       "Package": "rJava",
-      "Version": "1.0-4",
+      "Version": "1.0-6",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "0cd1ee479ba887170411af6d81705003"
     },
     "readr": {
       "Package": "readr",
-      "Version": "2.0.1",
+      "Version": "2.1.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "34807ea4fb5900386ddef904eef8bdb8"
