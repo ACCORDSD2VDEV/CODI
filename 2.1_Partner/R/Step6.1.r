@@ -24,7 +24,7 @@ result <- tryCatch({
     FROM ##hfco_participants p
     LEFT JOIN @SCHEMA.@LINK l ON p.linkid = l.@LINKID_COLUMN_VALUE
     LEFT JOIN @SCHEMA.@SESSION s ON s.@PERSON_ID_PATID = l.@PERSON_ID_PATID
-        AND s.session_date >= '1/1/2017'
+        AND s.session_date >= '6/1/2017'
     LEFT JOIN @SCHEMA.@PROGRAM pr ON pr.programid = s.programid
     ORDER BY p.linkid, s.session_date DESC;"
   hfco_query <- renderSqlText(query_text = hfco_query, render = T)
