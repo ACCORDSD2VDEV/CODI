@@ -34,4 +34,5 @@ FROM @SCHEMA.@DEMOGRAPHICS d
 JOIN @SCHEMA.LINK l ON l.@PERSON_ID_PATID = d.PERSON_ID
 JOIN #patientlist p ON p.linkid = l.@LINKID_COLUMN_VALUE
 LEFT OUTER JOIN #study_cohort s ON d.PERSON_ID = s.patid
-WHERE cast(exclusion as int) != 1;
+WHERE exclusion != 1;
+--WHERE cast(exclusion as int) != 1;
