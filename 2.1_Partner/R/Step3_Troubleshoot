@@ -4,9 +4,6 @@ patientlist_location <- list.files(here("FROM_DCC"), pattern = paste0("index_sit
 patientlist <- read.csv(here("FROM_DCC",patientlist_location), stringsAsFactors = F, 
                            colClasses =c("linkid"="character", "site"="character", "index_site"="character", 
                                          "inclusion" = "numeric", "exclusion" = "numeric")) %>% as_tibble()
-
-result <- tryCatch({
-  
   conn <- getNewDBConnection()
   tempResult1 <- run_db_query(db_conn=conn, sql_location=here("sql", paste0("Step", CODISTEP), sqlType, "snomed2icd.sql"))
   cat("Loading SNOMED to ICD codes...\n")
@@ -60,29 +57,4 @@ result <- tryCatch({
                                sql_location=here("sql", paste0("Step", CODISTEP), sqlType, "diagnosis_CC_ind_any.sql"))
   tempResult24 <- run_db_query(db_conn=conn, 
                                sql_location=here("sql", paste0("Step", CODISTEP), sqlType, "cohort_CC.sql"))
-}, error = function(err) {
-  stop(err)
-}, finally = function(){
-  tryCatch({DBI::dbDisconnect(conn)})
-})
-dir.create(here("output", paste0("Step_", CODISTEP)), showWarnings = F, recursive = T)
 
-tryCatch({
-  step_3_result <- run_db_query_andromeda(db_conn=conn, query_text = "SELECT DISTINCT * FROM #cohort_CC", andromedaTableName = "cohort_CC")
-  writeOutput_andromeda("step_3_result", step_3_result, andromedaTableName = "cohort_CC")
-  message(paste0("CODI Step ", CODISTEP, " done!"))
-}, finally = {
-  Andromeda::close(step_3_result)
-})
-#result <- tryCatch({
-#  source(here("R", "MITRE", "R_2_1-step-4.R"))
-#  step4Output <- matched_data_id
-#}, error = function(err) {
-#  stop(err)
-#}, finally = function(){
-#  tryCatch({DBI::dbDisconnect(conn)})
-#})
-
-
-writeOutput("PSM_matched_data", step_3_result)
-message(paste0("CODI Step ", CODISTEP + 1, " done!"))
