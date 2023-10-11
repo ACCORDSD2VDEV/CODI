@@ -91,8 +91,6 @@ tryCatch({
   writeOutput_andromeda("anchor_comparison_cohort", anchor_comparison_cohort, andromedaTableName = "anchor_comparison_cohort")
   anchor_date <- run_db_query_andromeda(db_conn=conn, query_text = "SELECT DISTINCT * FROM #anchor_date", andromedaTableName = "anchor_date")
   writeOutput_andromeda("anchor_date", anchor_date, andromedaTableName = "anchor_date")
-  cohort_clean <- run_db_query_andromeda(db_conn=conn, query_text = "SELECT DISTINCT * FROM #cohort_clean", andromedaTableName = "cohort_clean")
-  writeOutput_andromeda("cohort_clean", cohort_clean, andromedaTableName = "cohort_clean")
   pmca_input <- run_db_query_andromeda(db_conn=conn, query_text = "SELECT DISTINCT * FROM #pmca_input", andromedaTableName = "pmca_input")
   writeOutput_andromeda("pmca_input", pmca_input, andromedaTableName = "pmca_input")
   cohort_pmca <- run_db_query_andromeda(db_conn=conn, query_text = "SELECT DISTINCT * FROM #cohort_pmca", andromedaTableName = "cohort_pmca")
