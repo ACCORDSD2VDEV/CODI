@@ -19,7 +19,7 @@ FROM (
 		SELECT DISTINCT @PERSON_ID_PATID patid
 		FROM @SCHEMA.@SESSION
 		WHERE session_date >= '2017-6-1' AND session_date < '2018-6-1'
-			--AND programid <> 'WCV' -- only relevant for a particular data partner
+			AND programid <> 'WCV' -- only relevant for a particular data partner
 		) inc ON inc.patid = d.PERSON_ID
 	) a
 WHERE study_age_yrs BETWEEN 2
