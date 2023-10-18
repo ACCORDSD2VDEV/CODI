@@ -18,21 +18,21 @@ JOIN ( SELECT icd10 AS dx
 			END AS severity
 	FROM #pmca
 	
-	UNION ALL
+	--UNION ALL
 	
-	SELECT referencedComponentId
-		,'SM'
-		,body_system
-		,CASE 
-			WHEN progressive IN (
-					'Yes'
-					,'yes'
-					)
-				THEN 2
-			ELSE 1
-			END AS severity
-	FROM #pmca
-	JOIN #snomed2icd ON icd10 = mapTarget
+	--SELECT referencedComponentId
+	--	,'SM'
+	--	,body_system
+	--	,CASE 
+	--		WHEN progressive IN (
+	--				'Yes'
+	--				,'yes'
+	--				)
+	--			THEN 2
+	--		ELSE 1
+	--		END AS severity
+	--FROM #pmca
+	--JOIN #snomed2icd ON icd10 = mapTarget
 )  pmca_codes ON pmca_codes.dx = d.dx AND pmca_codes.dx_type = d.DX_CODETYPE
 JOIN
 	#anchor_date ad on ad.patid = d.PERSON_ID
