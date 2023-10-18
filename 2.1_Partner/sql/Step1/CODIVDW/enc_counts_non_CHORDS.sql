@@ -19,7 +19,7 @@ FROM (
 	END AS yr
   	FROM @SCHEMA.@SESSION e
   	JOIN @SCHEMA.@LINK l on l.@PERSON_ID_PATID = e.PERSON_ID
-  	WHERE e.SESSION_DATE >= '2017-1-1' AND e.SESSION_DATE < '2023-1-1'
+  	WHERE e.SESSION_DATE >= '2016-1-1' AND e.SESSION_DATE < '2023-1-1'
   ) AS encounter_plus_year
   GROUP BY linkid, patid, yr
 ) a;
