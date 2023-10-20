@@ -20,14 +20,14 @@ CREATE TABLE #cohort (
 
 INSERT INTO #cohort
 (linkid, d.patid, sex, pat_pref_language_spoken, race, hispanic, in_study_cohort, index_site_flag, ageyrs, inclusion, exclusion)
-SELECT p.linkid as linkid, d.PERSON_ID as patid, GENDER as sex, PRIMARY_LANGUAGE as pat_pref_language_spoken, RACE1 as race, hispanic, 
+SELECT p.linkid, d.PERSON_ID, GENDER, PRIMARY_LANGUAGE, RACE1, hispanic, 
 	   CASE WHEN s.patid IS NOT NULL THEN 1 ELSE 0 END AS in_study_cohort,
 	   CASE WHEN UPPER(p.site) = UPPER(p.index_site) THEN 'T' ELSE 'F' END AS index_site_flag,
 	   CASE 
 		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '6/1/2016'), d.birth_date), '6/1/2016') < 0
 			THEN DATEDIFF(YEAR, d.birth_date, '6/1/2016') - 1
 		ELSE DATEDIFF(YEAR, d.birth_date, '6/1/2016')
-		END as ageyrs,
+		END,
 	   inclusion,
 	   exclusion
 FROM @SCHEMA.@DEMOGRAPHICS d
