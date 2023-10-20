@@ -14,7 +14,7 @@ FROM (
 	WHERE PERSON_ID IN (
 			SELECT @PERSON_ID_PATID
 			FROM @SCHEMA.@SESSION s
-			WHERE session_date >= '2016-6-1' AND session_date < '2017-6-1' 
+			WHERE session_date >= '2017-6-1' AND session_date < '2018-6-1' 
 			--DATEPART(YEAR, session_date) = 2017
 			--AND programid IN (SELECT programid from #study_programs)
 			
