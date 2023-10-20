@@ -19,7 +19,7 @@ CREATE TABLE #cohort (
 );
 
 INSERT INTO #cohort
---(linkid, d.patid, sex, pat_pref_language_spoken, race, hispanic, in_study_cohort, index_site_flag, ageyrs, inclusion, exclusion)
+(linkid, d.patid, sex, pat_pref_language_spoken, race, hispanic, in_study_cohort, index_site_flag, ageyrs, inclusion, exclusion)
 SELECT p.linkid as linkid, d.PERSON_ID as patid, GENDER as sex, PRIMARY_LANGUAGE as pat_pref_language_spoken, RACE1 as race, hispanic, 
 	   CASE WHEN s.patid IS NOT NULL THEN 1 ELSE 0 END AS in_study_cohort,
 	   CASE WHEN UPPER(p.site) = UPPER(p.index_site) THEN 'T' ELSE 'F' END AS index_site_flag,
