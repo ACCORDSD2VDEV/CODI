@@ -18,21 +18,37 @@ CREATE TABLE #cohort (
 	exclusion int		
 );
 
+--INSERT INTO #cohort
+--(linkid, d.patid, sex, pat_pref_language_spoken, race, hispanic, in_study_cohort, index_site_flag, ageyrs, inclusion, exclusion)
+--SELECT p.linkid, d.PERSON_ID, GENDER, PRIMARY_LANGUAGE, RACE1, hispanic, 
+--	   CASE WHEN s.patid IS NOT NULL THEN 1 ELSE 0 END AS in_study_cohort,
+--	   CASE WHEN UPPER(p.site) = UPPER(p.index_site) THEN 'T' ELSE 'F' END AS index_site_flag,
+--	   CASE 
+--		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '1/1/2017'), d.birth_date), '1/1/2017') < 0
+--			THEN DATEDIFF(YEAR, d.birth_date, '1/1/2017') - 1
+--		ELSE DATEDIFF(YEAR, d.birth_date, '1/1/2017')
+--		END,
+--	   inclusion,
+--	   exclusion
+--FROM @SCHEMA.@DEMOGRAPHICS d
+--JOIN @SCHEMA.LINK l ON l.@PERSON_ID_PATID = d.PERSON_ID
+--JOIN #patientlist p ON p.linkid = l.@LINKID_COLUMN_VALUE
+--LEFT OUTER JOIN #study_cohort s ON d.PERSON_ID = s.patid
+--WHERE cast(exclusion as int) != 1;
+
 INSERT INTO #cohort
-(linkid, patid, sex, pat_pref_language_spoken, race, hispanic, in_study_cohort, index_site_flag, ageyrs, inclusion, exclusion)
-SELECT p.linkid, d.PERSON_ID, GENDER, PRIMARY_LANGUAGE, RACE1, hispanic, 
+SELECT p.linkid as linkid, d.PERSON_ID as patid, GENDER as sex, PRIMARY_LANGUAGE as pat_pref_language_spoken, RACE1 as race, hispanic as hispanic, 
 	   CASE WHEN s.patid IS NOT NULL THEN 1 ELSE 0 END AS in_study_cohort,
 	   CASE WHEN UPPER(p.site) = UPPER(p.index_site) THEN 'T' ELSE 'F' END AS index_site_flag,
 	   CASE 
 		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '6/1/2017'), d.birth_date), '6/1/2017') < 0
 			THEN DATEDIFF(YEAR, d.birth_date, '6/1/2017') - 1
 		ELSE DATEDIFF(YEAR, d.birth_date, '6/1/2017')
-		END,
-	   inclusion,
-	   exclusion
+		END as ageyrs,
+	   inclusion as inclusion,
+	   exclusion as exclusion
 FROM @SCHEMA.@DEMOGRAPHICS d
 JOIN @SCHEMA.LINK l ON l.@PERSON_ID_PATID = d.PERSON_ID
 JOIN #patientlist p ON p.linkid = l.@LINKID_COLUMN_VALUE
 LEFT OUTER JOIN #study_cohort s ON d.PERSON_ID = s.patid
-WHERE exclusion != 1;
 WHERE cast(exclusion as int) != 1 or exclusion is null;
