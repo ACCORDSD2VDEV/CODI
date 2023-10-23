@@ -26,7 +26,7 @@ SELECT p.linkid, d.PERSON_ID, GENDER, PRIMARY_LANGUAGE, RACE1, hispanic,
 	   CASE 
 		WHEN DATEDIFF(day, DATEADD(year, DATEDIFF(YEAR, d.birth_date, '6/1/2017'), d.birth_date), '6/1/2017') < 0
 			THEN DATEDIFF(YEAR, d.birth_date, '6/1/2017') - 1
-		ELSE DATEDIFF(YEAR, d.birth_date, '6/1/2016')
+		ELSE DATEDIFF(YEAR, d.birth_date, '6/1/2017')
 		END,
 	   inclusion,
 	   exclusion
