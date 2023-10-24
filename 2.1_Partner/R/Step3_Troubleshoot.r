@@ -113,6 +113,8 @@ tryCatch({
   writeOutput_andromeda("diagnosis_CC_ind_any", diagnosis_CC_ind_any, andromedaTableName = "diagnosis_CC_ind_any")
    cohort_CC <- run_db_query_andromeda(db_conn=conn, query_text = "SELECT DISTINCT * FROM #cohort_CC", andromedaTableName = "cohort_CC")
   writeOutput_andromeda("cohort_CC", cohort_CC, andromedaTableName = "cohort_CC")
+   patientlist <- run_db_query_andromeda(db_conn=conn, query_text = "SELECT DISTINCT * FROM #patientlist", andromedaTableName = "patientlist")
+  writeOutput_andromeda("patientlist", patientlist, andromedaTableName = "patientlist")
   message(paste0("CODI Step ", CODISTEP, " done!"))
 }, finally = {
   Andromeda::close(step_3_result)
@@ -127,6 +129,6 @@ tryCatch({
 #})
 
 
-writeOutput("PSM_matched_data", step_3_result)
-message(paste0("CODI Step ", CODISTEP + 1, " done!"))
+#writeOutput("PSM_matched_data", step_3_result)
+#message(paste0("CODI Step ", CODISTEP + 1, " done!"))
 
