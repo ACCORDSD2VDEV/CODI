@@ -13,12 +13,12 @@ JOIN (
 	SELECT DISTINCT v1.PERSON_ID
 		,v1.MEASURE_DATE
 		,v1.ENC_ID
-		,v1.HT * 0.3937008 as HT
+		,v1.HT HT
 		,v1.WT
 	FROM (	
 		SELECT person_id
 			,enc_id
-			,max(ht) ht
+			,max(ht) * 0.3937008 ht
 			,max(wt) wt
 			,measure_date
 		FROM @SCHEMA.@VITAL_SIGNS
