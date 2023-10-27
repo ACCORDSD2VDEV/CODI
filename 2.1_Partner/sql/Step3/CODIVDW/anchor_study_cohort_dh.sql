@@ -18,7 +18,7 @@ JOIN (
 	FROM (	
 		SELECT person_id
 			,enc_id
-			,max(ht) * 0.3937008 ht
+			,max(ht)*0.3937008 ht
 			,max(wt) wt
 			,measure_date
 		FROM @SCHEMA.@VITAL_SIGNS
